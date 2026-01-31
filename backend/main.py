@@ -30,13 +30,15 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 # =======================
 # 🗄️ 数据库配置
 # =======================
-SQLALCHEMY_DATABASE_URL = "mysql+pymysql://root:52585258@localhost:3306/lixingchen" # 👈 记得确认你的密码！
+SQLALCHEMY_DATABASE_URL = "sqlite:///./sql_app.db"
 
 UPLOAD_DIR = "uploads"
 if not os.path.exists(UPLOAD_DIR):
     os.makedirs(UPLOAD_DIR)
 
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
+engine = create_engine(
+    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
+)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
