@@ -1,0 +1,18 @@
+# Python 垃圾
+__pycache__/
+*.py[cod]
+*$py.class
+backend/venv/
+backend/.env
+backend/*.db
+backend/*.sqlite3
+
+# Node.js 垃圾 (这个巨大，千万别传)
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+
+# 系统垃圾
+.DS_Store
+Thumbs.db
